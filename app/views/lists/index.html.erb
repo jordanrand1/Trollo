@@ -1,10 +1,10 @@
 <h1>Lists for Boards</h1>
-<%= link_to 'Add List Here', new_list_path %>
+<%= link_to 'Add List Here', new_board_list_path %>
 <hr />
-<%= @lists.each do |list| %>
+<% @lists.each do |list| %>
   <hr />
     <%= list.name %>
     <%= link_to 'Edit', edit_board_list_path(list.board_id, list.id) %>
-    <%= link_to 'Delete', board_list_path(list.board_id, list), method: :destroy %>
+    <%= link_to 'Delete', board_list_path(list.board_id, list), method: :delete %>
   <hr />
 <% end %>

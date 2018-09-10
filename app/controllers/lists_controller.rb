@@ -17,7 +17,7 @@ class ListsController < ApplicationController
     @list = @board.lists.new(list_params)
 
     if @list.save
-      redirect_to list_path
+      redirect_to board_lists_path
     else
       render :new
     end
@@ -47,6 +47,10 @@ class ListsController < ApplicationController
 
   def set_list
     @list = List.find(params[:id])
+  end
+
+  def list_params
+    params.require(:list).permit(:name)
   end
 
 end
