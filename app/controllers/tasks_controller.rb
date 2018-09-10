@@ -14,10 +14,10 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-
+    binding.pry
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: 'Board was successfully created.' }
+        format.html { redirect_to @task, notice: 'Task was successfully created.' }
         format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new }
@@ -46,6 +46,10 @@ class TasksController < ApplicationController
 
     def get_task
       @task = Task.find(params[:id])
+    end
+
+    def get_list 
+      @list = List.find(params[:id])
     end
 
     def task_params
