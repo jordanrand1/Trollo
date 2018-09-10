@@ -2,7 +2,6 @@
 
 <%= link_to 'Back', boards_path, class: 'ui button' %>
   <%= form_for @board do |f| %>
-    <%= f.field :name %>
     <%= f.text_field :name, class: 'field' %>
       <%= f.submit class: 'ui button' %>
     <% end %>
