@@ -1,5 +1,6 @@
 <h1><%= @board.name %></h1>
 <%= link_to 'Back', boards_path %>
+<%= link_to 'New List', new_list_path %>
 <% @board.lists.each do |list| %>
   <%= list.name %>
   <% list.tasks.each do |task| %>
