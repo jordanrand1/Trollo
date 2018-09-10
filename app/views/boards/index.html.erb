@@ -1,7 +1,7 @@
 
 <p id="notice"><%= notice %></p>
 <h1 class="ui header">Your Boards</h1>
-<%= link_to 'New Boards', new_board_path %>
+<%= link_to 'New Boards', new_board_path, class: 'ui button' %>
 <% @boards.each do |board| %>
 <div class="sixteen wide mobile eight wide tablet four wide computer column">
   <div class="ui card">
@@ -11,10 +11,10 @@
     <div class="extra content">
       <div class="ui two buttons">
         <div class="ui basic green button">
-          <%= link_to "Edit", edit_board_path(board) %>
+          <%= link_to "Edit", edit_board_path(board), class: 'ui button' %>
         </div>
         <div class="ui basic red button">
-          <%= link_to "Destroy", board, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to "Destroy", board, method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui button' %>
         </div>
       </div>
     </div>

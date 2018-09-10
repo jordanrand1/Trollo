@@ -1,7 +1,7 @@
 <h1>Edit Board Name</h1>
-<%= link_to 'Back', boards_path %>
+<%= link_to 'Back', boards_path, class: 'ui button' %>
     <%= form_for @board do |f| %>
       <%= f.label :name %>
       <%= f.text_field :name %>
-      <%= f.submit %>
+      <%= f.submit nil, class: 'ui button' %>
     <% end %>
