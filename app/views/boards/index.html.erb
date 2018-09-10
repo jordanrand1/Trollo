@@ -1,2 +1,22 @@
-<h1>Boards#index</h1>
-<p>Find me in app/views/boards/index.html.erb</p>
+
+<p id="notice"><%= notice %></p>
+<h1 class="ui header">Your Boards</h1>
+<%= link_to 'New Boards', new_board_path %>
+<% @boards.each do |board| %>
+<div class="sixteen wide mobile eight wide tablet four wide computer column">
+  <div class="ui card">
+    <div class="content">
+      <%= link_to board.full_name, board, class: "header" %>
+    </div>
+    <div class="extra content">
+      <div class="ui two buttons">
+        <div class="ui basic green button">
+          <%= link_to "Edit", edit_board_path(board) %>
+        </div>
+        <div class="ui basic red button">
+          <%= link_to "Destroy", board, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
