@@ -1,8 +1,11 @@
 <h1>Create a new Board</h1>
 
 <%= link_to 'Back', boards_path, class: 'ui button' %>
-  <%= form_for @board do |f| %>
-    <%= f.text_field :name, class: 'field' %>
-      <%= f.submit class: 'ui button' %>
-    <% end %>
+  <div class='ui form'>
+    <%= form_for @board do |f| %>
+      <%= f.label 'Board name:' %>
+      <%= f.text_field :name, class: 'field' %>
+        <%= f.submit class: 'fluid ui green button' %>
+      <% end %>
+  </div>
     </div>
