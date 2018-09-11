@@ -24,12 +24,13 @@ class ListsController < ApplicationController
   end
 
   def edit
-    render :list_form
+    render partial: 'partials/list_form'
   end
 
   def update
     if @list.update(list_params)
-      redirect_to list_path
+      binding.pry
+      redirect_to board_lists_path(@board.id)
     else
       render :edit
     end
