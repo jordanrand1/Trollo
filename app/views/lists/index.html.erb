@@ -5,8 +5,13 @@
   <% @lists.each do |list| %>
     <div class="ui card">
       <%= list.name %>
+      <%= form_for [list, list.tasks.new] do |f| %>
+        <%= f.text_field :body, placeholder: 'New Task' %>
+        <%= f.submit %>
+      <% end %>
       <% list.tasks.each do |task| %>
         <%= task.body %>
+        <br>
       <% end %>
       <%= link_to 'Edit', edit_board_list_path(list.board_id, list.id) %>
       <%= link_to 'Delete', board_list_path(list.board_id, list), method: :delete %>

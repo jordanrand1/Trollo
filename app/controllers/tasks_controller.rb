@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :get_task, only: [:show, :edit, :destroy, :update]
+  before_action :get_list
 
   def index
     @tasks = Task.all
@@ -13,12 +14,11 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(task_params)
-    binding.pry
+    @task = @list.tasks.new(task_params)
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
-        format.json { render :show, status: :created, location: @task }
+        format.html { redirect_to board_lists_path(@list.board_id), notice: 'Task was successfully created.' }
+        format.json { render :show, status: :created, location: board_lists_path(@list.board_id)}
       else
         format.html { render :new }
         format.json { render json: @task.errors, status: :unprocessable_entity }
@@ -49,7 +49,7 @@ class TasksController < ApplicationController
     end
 
     def get_list 
-      @list = List.find(params[:id])
+      @list = List.find(params[:list_id])
     end
 
     def task_params
