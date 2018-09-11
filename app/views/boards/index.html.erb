@@ -17,7 +17,7 @@
           <%= link_to "Edit", edit_board_path(board), class: 'ui button' %>
         </div>
         <div class="ui basic red button">
-          <%= link_to "Destroy", board, method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui button' %>
+          <%= button_to "Destroy", board_path(board), method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui button' %>
         </div>
       </div>
     </div>

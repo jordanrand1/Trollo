@@ -1,14 +1,14 @@
 class BoardsController < ApplicationController
   before_action :set_board, only: [:show, :update, :edit, :destroy]
   def index
-    @boards = Board.all
+    @boards = current_user.boards
   end
 
   def show
   end
 
   def new
-    @board = Board.new
+    @board = current_user.boards.new
   end
 
   def edit
@@ -27,7 +27,7 @@ class BoardsController < ApplicationController
   end
 
   def create
-    @board = Board.new(board_params)
+    @board = current_user.boards.new(board_params)
 
     respond_to do |format|
       if @board.save
@@ -42,6 +42,7 @@ class BoardsController < ApplicationController
 
   def destroy
     @board.destroy
+    binding.pry
     respond_to do |format|
       format.html { redirect_to boards_url, notice: 'Board was successfully destroyed.' }
       format.json { head :no_content }
@@ -50,7 +51,7 @@ class BoardsController < ApplicationController
 
 private
   def set_board
-    @board = Board.find(params[:id])
+    @board = current_user.boards.find(params[:id])
   end
   def board_params
     params.require(:board).permit(:name)
