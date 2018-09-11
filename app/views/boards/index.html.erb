@@ -7,6 +7,9 @@
   <div class="ui card">
     <div class="content">
       <%= link_to board.name, board_lists_path(board), class: "header" %>
+      <% board.lists.each do |list|  %>
+      <%= list.name  %>
+      <% end  %>
     </div>
     <div class="extra content">
       <div class="ui two buttons">
