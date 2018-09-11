@@ -29,7 +29,6 @@ class ListsController < ApplicationController
 
   def update
     if @list.update(list_params)
-      binding.pry
       redirect_to board_lists_path(@board.id)
     else
       render :edit
