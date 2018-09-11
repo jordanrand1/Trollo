@@ -14,10 +14,10 @@
     <div class="extra content">
       <div class="ui two buttons">
         <div class="ui basic green button">
-          <%= link_to "Edit", edit_board_path(board), class: 'ui button' %>
+          <%= link_to "Edit", edit_board_path(board), class: 'ui button blue' %>
         </div>
         <div class="ui basic red button">
-          <%= button_to "Destroy", board_path(board), method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui button' %>
+          <%= button_to "Destroy", board_path(board), method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui button red' %>
         </div>
       </div>
     </div>
