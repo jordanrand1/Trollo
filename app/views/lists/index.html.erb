@@ -26,7 +26,7 @@
 
         <div class="ui two bottom attached buttons">
           <%= link_to 'Edit', edit_board_list_path(list.board_id, list.id), class: 'ui button' %>
-          <%= link_to 'Delete', board_list_path(list.board_id, list), {method: :delete, class: 'ui red button'} %>
+          <%= button_to 'Delete', board_list_path(list.board_id, list.id), {method: :delete, class: 'ui red button'} %>
         </div>
 
       </div>
